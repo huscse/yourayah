@@ -1,13 +1,24 @@
-# React + Vite
+# 🌿 Ayah For You
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**A mood-based Quranic reflection app**  
+Get a personalized Quranic verse (Ayah) each day based on how you're feeling — sad, happy, anxious, grateful, and more.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📖 About the Project
 
-## Expanding the ESLint configuration
+**Ayah For You** is a serene, minimalist web app that delivers handpicked Quranic ayahs tailored to your current emotional state. Whether you’re feeling low, peaceful, or in search of hope, this app offers divine comfort and reflection — one verse at a time.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# yourayah
+Built with ❤️
+
+---
+
+## ✨ Features
+
+- 🧠 **Mood-based Ayah Suggestions** — Pick how you're feeling, get a relevant verse instantly
+- 🌙 **Elegant, calming UI** — Inspired by Islamic design aesthetics and simplicity
+- 🔄 **Show Another Ayah** — View a new ayah within the same mood
+- 🌐 **Responsive Design** — Works beautifully on desktop and mobile
+- ⚡ Powered by [AlQuran Cloud API](https://alquran.cloud/api)
+
+---
