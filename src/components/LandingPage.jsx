@@ -86,28 +86,13 @@ const LandingPage = ({ onStartUsing }) => {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="cta-section">
-          <div className="cta-card">
-            <h2 className="cta-title">Begin Your Journey</h2>
-            <p className="cta-message">
-              Take a moment to center yourself, breathe deeply, and let the
-              words of the Quran guide you toward inner peace and clarity.
-            </p>
-
-            <button className="start-button" onClick={onStartUsing}>
-              <span className="button-text">Start Using</span>
-              <span className="button-arrow">→</span>
-            </button>
-          </div>
-        </div>
         {/* Daily Azkaar Feature Section */}
         <div className="features-section">
           <h2 className="features-title">Daily Azkaar 📿</h2>
           <div className="features-grid">
             <div className="feature-item">
               <div className="feature-icon">🌅</div>
-              <h3>Start & End Your Day Right</h3>
+              <h3>Start & End Your Day Right!</h3>
               <p>
                 Morning and evening Azkaar to strengthen your connection with
                 Allah and bring serenity to your routine.
@@ -131,6 +116,22 @@ const LandingPage = ({ onStartUsing }) => {
                 what your day looks like.
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="cta-section">
+          <div className="cta-card">
+            <h2 className="cta-title">Begin Your Journey</h2>
+            <p className="cta-message">
+              Take a moment to center yourself, breathe deeply, and let the
+              words of the Quran guide you toward inner peace and clarity.
+            </p>
+
+            <button className="start-button" onClick={onStartUsing}>
+              <span className="button-text">Start Using</span>
+              <span className="button-arrow">→</span>
+            </button>
           </div>
         </div>
 
