@@ -101,9 +101,42 @@ const LandingPage = ({ onStartUsing }) => {
             </button>
           </div>
         </div>
+        {/* Daily Azkaar Feature Section */}
+        <div className="features-section">
+          <h2 className="features-title">Daily Azkaar 📿</h2>
+          <div className="features-grid">
+            <div className="feature-item">
+              <div className="feature-icon">🌅</div>
+              <h3>Start & End Your Day Right</h3>
+              <p>
+                Morning and evening Azkaar to strengthen your connection with
+                Allah and bring serenity to your routine.
+              </p>
+            </div>
+
+            <div className="feature-item">
+              <div className="feature-icon">🕊️</div>
+              <h3>Spiritual Calm</h3>
+              <p>
+                Simple reminders and short ayahs that help you pause, breathe,
+                and remember — even in busy moments.
+              </p>
+            </div>
+
+            <div className="feature-item">
+              <div className="feature-icon">🧘</div>
+              <h3>Mindful Moments</h3>
+              <p>
+                Reflect on daily dhikr for inner balance and peace, no matter
+                what your day looks like.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <footer>
           {' '}
-          <p>&copy; 2025 - Husnain</p>
+          <p className="cta-message">&copy; 2025 Husnain</p>
         </footer>
       </div>
 
