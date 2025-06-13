@@ -15,22 +15,22 @@ const azkaarList = [
   {
     arabic: 'أَسْتَغْفِرُ اللّٰهَ',
     translation: 'I seek forgiveness from Allah.',
-    reference: 'Dhikr',
+    reference: '30 times',
   },
   {
     arabic: 'لا إِلٰهَ إِلَّا اللّٰهُ',
     translation: 'There is no deity but Allah.',
-    reference: 'Best remembrance',
+    reference: '30 times',
   },
   {
     arabic: 'اللّهُ أَكْبَرُ',
     translation: 'Allah is the Greatest.',
-    reference: 'General dhikr',
+    reference: '30 times',
   },
   {
     arabic: 'الْـحَمْدُ لِلّٰهِ',
     translation: 'All praise is due to Allah.',
-    reference: 'Gratitude',
+    reference: '30 times',
   },
 ];
 
