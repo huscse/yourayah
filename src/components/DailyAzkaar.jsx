@@ -32,6 +32,45 @@ const azkaarList = [
     translation: 'All praise is due to Allah.',
     reference: '30 times',
   },
+  {
+    arabic:
+      'اللّهُـمَّ بِكَ أَصْبَـحْنا، وَبِكَ أَمْسَـيْنا، وَبِكَ نَحْـيا، وَبِكَ نَمـوتُ، وَإِلَيْكَ النُّـشُور',
+    translation:
+      'O Allah, by You we enter the morning, and by You we enter the evening, by You we live and by You we die, and to You is the resurrection.',
+    reference: 'Morning Azkar',
+  },
+  {
+    arabic: 'اللّهُـمَّ أَجِرْنِي مِنَ النّار',
+    translation: 'O Allah, protect me from the Hellfire.',
+    reference: '7 times after Fajr & Maghrib',
+  },
+  {
+    arabic:
+      'رَضِيتُ بِاللّٰهِ رَبّاً، وَبِالإِسْلاَمِ دِيناً، وَبِمُحَمَّدٍ ﷺ نَبِيّاً',
+    translation:
+      'I am pleased with Allah as my Lord, Islam as my religion, and Muhammad ﷺ as my Prophet.',
+    reference: 'Morning & Evening',
+  },
+  {
+    arabic:
+      'حَسْبِيَ اللّٰهُ لا إِلٰهَ إِلَّا هُوَ، عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيم',
+    translation:
+      'Allah is sufficient for me. There is no deity except Him. I have placed my trust in Him and He is the Lord of the Mighty Throne.',
+    reference: '7 times Morning & Evening (Surah At-Tawbah: 129)',
+  },
+
+  {
+    arabic:
+      'اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ وَأَعُوذُ بِكَ مِنَ النَّارِ',
+    translation:
+      'O Allah, I ask You for Paradise and seek refuge in You from the Fire.',
+    reference: 'Dua for jannah',
+  },
+  {
+    arabic: 'يَا حَيُّ يَا قَيُّومُ، بِرَحْمَتِكَ أَسْتَغِيثُ',
+    translation: 'O Ever-Living, O Sustainer, in Your mercy I seek relief.',
+    reference: 'Morning Azkar',
+  },
 ];
 
 const DailyAzkaar = () => {
