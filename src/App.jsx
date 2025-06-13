@@ -3,6 +3,7 @@ import './App.css';
 import MoodSelector from './components/MoodSelector';
 import AyahDisplay from './components/AyahDisplay';
 import LandingPage from './components/LandingPage';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const [currentView, setCurrentView] = useState('landing'); // 'landing' or 'main'
@@ -35,6 +36,7 @@ function App() {
       <h1>Daily Ayah for You 💚</h1>
       <MoodSelector setMood={setMood} />
       <AyahDisplay mood={mood} />
+      <Analytics />
     </div>
   );
 }

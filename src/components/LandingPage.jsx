@@ -94,6 +94,7 @@ const LandingPage = ({ onStartUsing }) => {
               Take a moment to center yourself, breathe deeply, and let the
               words of the Quran guide you toward inner peace and clarity.
             </p>
+
             <button className="start-button" onClick={onStartUsing}>
               <span className="button-text">Start Using</span>
               <span className="button-arrow">→</span>
@@ -416,6 +417,10 @@ const LandingPage = ({ onStartUsing }) => {
           -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
           touch-action: manipulation;
           user-select: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 1.5rem;
         }
 
         .start-button:hover {
@@ -431,6 +436,9 @@ const LandingPage = ({ onStartUsing }) => {
 
         .button-text {
           font-weight: 500;
+          aliign-items: center;
+          align-items: center;
+          justify-content: center;
         }
 
         .button-arrow {
