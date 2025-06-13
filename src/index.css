@@ -1,0 +1,746 @@
+/* Import beautiful fonts */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@200;300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Serene color palette */
+  --sage: #8fae9a;
+  --sage-light: #a8c3aa;
+  --sage-dark: #7a9b85;
+  --sage-ultra-light: rgba(143, 174, 154, 0.1);
+  --cream: #fef9f3;
+  --cream-soft: #f8f4ed;
+  --gold: #d4af37;
+  --gold-soft: #e6c968;
+  --text-dark: #2c3e50;
+  --text-medium: #5a6c7d;
+  --text-light: #8b9dc3;
+  --white: #ffffff;
+  --shadow-soft: rgba(139, 157, 195, 0.08);
+  --shadow-medium: rgba(139, 157, 195, 0.15);
+  --shadow-strong: rgba(139, 157, 195, 0.25);
+  --border-light: rgba(143, 174, 154, 0.2);
+  --border-medium: rgba(143, 174, 154, 0.3);
+
+  /* Mobile-specific variables */
+  --mobile-padding: clamp(1rem, 4vw, 2rem);
+  --touch-target: 44px; /* Apple's recommended minimum touch target */
+  --mobile-border-radius: clamp(12px, 3vw, 24px);
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(
+    135deg,
+    #f8f4ed 0%,
+    #fef9f3 25%,
+    #f5f1ea 50%,
+    #faf6ef 75%,
+    #fef9f3 100%
+  );
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--text-dark);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Better mobile scrolling */
+  -webkit-overflow-scrolling: touch;
+  /* Prevent zoom on input focus */
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Floating particles background - optimized for mobile */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+      circle at 20% 30%,
+      rgba(143, 174, 154, 0.03) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(212, 175, 55, 0.03) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 40% 80%,
+      rgba(143, 174, 154, 0.02) 0%,
+      transparent 35%
+    );
+  background-size: 600px 600px, 400px 400px, 300px 300px;
+  animation: gentleFloat 25s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: -1;
+  /* Reduce animations on mobile for better performance */
+  will-change: transform;
+}
+
+@keyframes gentleFloat {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-10px, -15px) scale(1.02);
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Main App Container - Mobile First */
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--mobile-padding);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: clamp(1rem, 4vw, 2rem);
+  position: relative;
+  /* Safe area for notched devices */
+  padding-top: max(var(--mobile-padding), env(safe-area-inset-top));
+  padding-bottom: max(var(--mobile-padding), env(safe-area-inset-bottom));
+  padding-left: max(var(--mobile-padding), env(safe-area-inset-left));
+  padding-right: max(var(--mobile-padding), env(safe-area-inset-right));
+}
+
+/* Main Title - Mobile Optimized */
+.app-container h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 6vw, 3.5rem);
+  font-weight: 500;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  margin-top: clamp(1rem, 4vw, 2rem);
+  background: linear-gradient(135deg, var(--text-dark), var(--sage-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.2s forwards;
+  /* Better text rendering on mobile */
+  text-rendering: optimizeLegibility;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Mood Selector Styles - Touch Optimized */
+.mood-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.75rem, 3vw, 1rem);
+  margin: clamp(1rem, 4vw, 2rem) 0;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.4s forwards;
+  width: 100%;
+  max-width: 320px;
+}
+
+.mood-selector label {
+  font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+  color: var(--text-medium);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.mood-selector select {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid var(--border-light);
+  border-radius: var(--mobile-border-radius);
+  padding: clamp(0.875rem, 3vw, 1rem) clamp(1.25rem, 4vw, 1.5rem);
+  font-size: clamp(0.9rem, 3.5vw, 1rem);
+  font-weight: 400;
+  color: var(--text-dark);
+  cursor: pointer;
+  width: 100%;
+  min-height: var(--touch-target);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px var(--shadow-soft);
+  font-family: inherit;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238FAE9A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right clamp(1rem, 3vw, 1.5rem) center;
+  background-size: clamp(1rem, 3vw, 1.25rem);
+  padding-right: clamp(2.5rem, 8vw, 3rem);
+  /* Better touch interaction */
+  -webkit-tap-highlight-color: rgba(143, 174, 154, 0.2);
+  touch-action: manipulation;
+}
+
+.mood-selector select:hover,
+.mood-selector select:focus {
+  border-color: var(--sage);
+  box-shadow: 0 6px 24px var(--shadow-medium);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.mood-selector select:focus {
+  box-shadow: 0 0 0 3px rgba(143, 174, 154, 0.2),
+    0 6px 24px var(--shadow-medium);
+}
+
+.mood-selector select option {
+  background: var(--white);
+  color: var(--text-dark);
+  padding: clamp(0.5rem, 2vw, 0.75rem);
+  font-size: clamp(0.9rem, 3.5vw, 1rem);
+  line-height: 1.4;
+}
+
+/* Ayah Display Styles - Mobile Optimized */
+.ayah-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--mobile-border-radius);
+  padding: clamp(1.5rem, 5vw, 3rem) clamp(1rem, 4vw, 2rem);
+  box-shadow: 0 8px 32px var(--shadow-soft);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.6s forwards;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  margin: clamp(1rem, 4vw, 2rem) auto;
+  /* Better mobile performance */
+  will-change: opacity, transform;
+  contain: layout style paint;
+}
+
+.ayah-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0%,
+    var(--sage) 50%,
+    var(--gold) 100%
+  );
+  border-radius: var(--mobile-border-radius) var(--mobile-border-radius) 0 0;
+}
+
+.ayah-container::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(143, 174, 154, 0.02) 0%,
+    transparent 70%
+  );
+  animation: gentleRotate 30s linear infinite;
+  pointer-events: none;
+  /* Optimize for mobile performance */
+  will-change: transform;
+}
+
+@keyframes gentleRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.arabic-text {
+  font-family: 'Amiri', serif;
+  font-size: clamp(1.5rem, 5vw, 2.8rem);
+  line-height: 1.7;
+  color: var(--text-dark);
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
+  text-align: center;
+  direction: rtl;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.02em;
+  /* Better Arabic text rendering */
+  font-variant-ligatures: common-ligatures;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+  word-spacing: 0.1em;
+  /* Improve readability on small screens */
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.english-text {
+  font-size: clamp(0.95rem, 3.5vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--text-medium);
+  margin: clamp(1.5rem, 4vw, 2rem) 0;
+  position: relative;
+  z-index: 1;
+  font-weight: 300;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+  /* Better mobile readability */
+  text-align: left;
+  hyphens: auto;
+  word-spacing: 0.05em;
+}
+
+.verse-reference {
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  color: var(--text-light);
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(0.75rem, 2vw, 1rem);
+  opacity: 0.8;
+}
+
+/* Button Styles - Touch Optimized */
+.ayah-button {
+  background: linear-gradient(135deg, var(--sage), var(--sage-light));
+  color: white;
+  border: none;
+  border-radius: var(--mobile-border-radius);
+  padding: clamp(0.875rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem);
+  font-size: clamp(0.9rem, 3.5vw, 1rem);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  letter-spacing: 0.025em;
+  box-shadow: 0 4px 16px var(--shadow-medium);
+  margin-top: clamp(1.5rem, 4vw, 2rem);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  /* Touch optimization */
+  min-height: var(--touch-target);
+  min-width: 120px;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+  touch-action: manipulation;
+  user-select: none;
+  will-change: transform, box-shadow;
+}
+
+.ayah-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.ayah-button:hover,
+.ayah-button:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--shadow-strong);
+  background: linear-gradient(135deg, var(--sage-dark), var(--sage));
+  outline: none;
+}
+
+.ayah-button:hover::before {
+  left: 100%;
+}
+
+.ayah-button:active {
+  transform: translateY(0);
+  transition-duration: 0.1s;
+}
+
+.ayah-button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(143, 174, 154, 0.3),
+    0 6px 20px var(--shadow-strong);
+}
+
+/* Loading and Error States - Mobile Optimized */
+.loading-message,
+.error-message {
+  text-align: center;
+  padding: clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+  color: var(--text-medium);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--mobile-border-radius);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  margin: clamp(1rem, 4vw, 2rem) 0;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 100%;
+}
+
+.error-message {
+  color: #e74c3c;
+  border-color: rgba(231, 76, 60, 0.2);
+}
+
+.select-mood-message {
+  text-align: center;
+  padding: clamp(2rem, 6vw, 3rem) clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+  color: var(--text-medium);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--mobile-border-radius);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  margin: clamp(1rem, 4vw, 2rem) 0;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.3s forwards;
+  position: relative;
+  overflow: hidden;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 100%;
+}
+
+.select-mood-message::before {
+  content: '💭';
+  display: block;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin-bottom: clamp(0.75rem, 2vw, 1rem);
+  opacity: 0.7;
+}
+
+/* Animations - Mobile Optimized */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive Design - Progressive Enhancement */
+@media (max-width: 768px) {
+  /* Tablet styles */
+  .app-container {
+    padding: clamp(1rem, 3vw, 1.5rem);
+    justify-content: flex-start;
+    padding-top: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .arabic-text {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .english-text {
+    text-align: center;
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Small mobile styles */
+  .app-container {
+    gap: 1rem;
+    padding: 1rem 0.75rem;
+    padding-top: 1.5rem;
+  }
+
+  .ayah-container {
+    margin: 1rem auto;
+    box-shadow: 0 4px 20px var(--shadow-soft);
+  }
+
+  .mood-selector {
+    margin: 1rem 0;
+    max-width: 280px;
+  }
+
+  .arabic-text {
+    line-height: 1.9;
+    word-spacing: 0.15em;
+  }
+
+  .english-text {
+    line-height: 1.7;
+    max-width: 100%;
+  }
+
+  .select-mood-message {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  /* Very small mobile styles */
+  .app-container {
+    padding: 0.75rem 0.5rem;
+    padding-top: 1rem;
+  }
+
+  .mood-selector {
+    max-width: 260px;
+  }
+
+  .ayah-container {
+    padding: 1.25rem 0.875rem;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-height: 500px) and (orientation: landscape) {
+  .app-container {
+    justify-content: flex-start;
+    padding-top: 0.5rem;
+    gap: 0.75rem;
+  }
+
+  .app-container h1 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .mood-selector {
+    margin: 0.75rem 0;
+  }
+
+  .ayah-container {
+    margin: 0.75rem auto;
+  }
+
+  .select-mood-message {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .arabic-text {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Dark mode support - Mobile Enhanced */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sage: #9fb8a5;
+    --sage-light: #b3c8b8;
+    --sage-dark: #8ba791;
+    --sage-ultra-light: rgba(159, 184, 165, 0.15);
+    --cream: #1a1f1a;
+    --cream-soft: #1e231e;
+    --text-dark: #e8f4f8;
+    --text-medium: #b8c5d1;
+    --text-light: #9aa5b1;
+    --white: #1e231e;
+    --shadow-soft: rgba(0, 0, 0, 0.2);
+    --shadow-medium: rgba(0, 0, 0, 0.3);
+    --shadow-strong: rgba(0, 0, 0, 0.4);
+    --border-light: rgba(159, 184, 165, 0.2);
+    --border-medium: rgba(159, 184, 165, 0.3);
+  }
+
+  body {
+    background: linear-gradient(
+      135deg,
+      #1a1f1a 0%,
+      #1e231e 25%,
+      #1a1f1a 50%,
+      #22272a 75%,
+      #1e231e 100%
+    );
+  }
+
+  body::before {
+    background-image: radial-gradient(
+        circle at 20% 30%,
+        rgba(159, 184, 165, 0.05) 0%,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 80% 70%,
+        rgba(230, 201, 104, 0.05) 0%,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 40% 80%,
+        rgba(159, 184, 165, 0.03) 0%,
+        transparent 35%
+      );
+  }
+
+  .mood-selector select {
+    background-color: rgba(30, 35, 30, 0.95);
+    color: #f5f8fa;
+    border: 2px solid var(--sage-dark);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23A8C3AA' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    -webkit-tap-highlight-color: rgba(168, 195, 170, 0.2);
+  }
+
+  .mood-selector select option {
+    background: #1e231e;
+    color: #f5f8fa;
+  }
+
+  .ayah-container,
+  .loading-message,
+  .error-message,
+  .select-mood-message {
+    background: rgba(30, 35, 30, 0.95);
+    border-color: var(--border-light);
+  }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .mood-selector select {
+    /* Fix iOS zoom on focus */
+    font-size: max(16px, clamp(0.9rem, 3.5vw, 1rem));
+  }
+
+  /* Fix iOS safe area */
+  .app-container {
+    padding-top: max(var(--mobile-padding), env(safe-area-inset-top, 20px));
+    padding-bottom: max(
+      var(--mobile-padding),
+      env(safe-area-inset-bottom, 20px)
+    );
+  }
+}
+
+/* Android Chrome specific optimizations */
+@supports (display: -webkit-box) {
+  .ayah-button {
+    /* Better button appearance on Android */
+    -webkit-appearance: none;
+    border-radius: var(--mobile-border-radius);
+  }
+}
+
+/* Back Button Styles - Add this to your existing App.css */
+.back-button {
+  position: absolute;
+  top: clamp(1rem, 3vw, 1.5rem);
+  left: clamp(1rem, 3vw, 1.5rem);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-light);
+  border-radius: var(--mobile-border-radius);
+  padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.25rem);
+  font-size: clamp(0.85rem, 3vw, 0.95rem);
+  font-weight: 400;
+  color: var(--text-medium);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px var(--shadow-soft);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-height: var(--touch-target);
+  -webkit-tap-highlight-color: rgba(143, 174, 154, 0.2);
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.back-button:hover,
+.back-button:focus {
+  background: rgba(255, 255, 255, 1);
+  border-color: var(--sage);
+  color: var(--text-dark);
+  box-shadow: 0 4px 16px var(--shadow-medium);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.back-button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(143, 174, 154, 0.3),
+    0 4px 16px var(--shadow-medium);
+}
+
+.back-button:active {
+  transform: translateY(0);
+  transition-duration: 0.1s;
+}
+
+/* Adjust main app container to account for back button */
+.app-container {
+  padding-top: clamp(4rem, 8vw, 5rem); /* Increased top padding */
+}
+
+/* Dark mode support for back button */
+@media (prefers-color-scheme: dark) {
+  .back-button {
+    background: rgba(30, 35, 30, 0.9);
+    border-color: var(--border-light);
+    color: var(--text-light);
+  }
+
+  .back-button:hover,
+  .back-button:focus {
+    background: rgba(30, 35, 30, 1);
+    border-color: var(--sage);
+    color: var(--text-dark);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .back-button {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .app-container {
+    padding-top: 3.5rem;
+  }
+}
