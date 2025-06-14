@@ -751,3 +751,120 @@ body::before {
   align-items: center;
   margin-top: 1.5rem;
 }
+
+/* Reuse your design variables */
+
+.dua-wall-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: clamp(2rem, 4vw, 3rem) auto;
+  padding: 0 var(--mobile-padding);
+}
+
+.dua-wall-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 6vw, 3rem);
+  background: linear-gradient(135deg, var(--text-dark), var(--sage-dark));
+
+  text-align: center;
+  margin-bottom: 2rem;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dua-wall-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.dua-card {
+  border-radius: var(--mobile-border-radius);
+  box-shadow: 0 6px 20px var(--shadow-soft);
+  padding: clamp(1.25rem, 4vw, 2rem);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  transition: transform 0.3s ease;
+}
+
+.dua-card:hover {
+  transform: translateY(-4px);
+}
+
+.dua-arabic {
+  font-family: 'Amiri', serif;
+  font-size: clamp(1.25rem, 4.5vw, 2rem);
+  direction: rtl;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.dua-translation {
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
+  color: var(--text-medium);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.dua-reference {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.category-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border-light);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.category-btn:hover,
+.category-btn.active {
+  background-color: var(--sage);
+  transform: translateY(-1px);
+}
+
+.dua-wall-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.dua-card {
+  padding: 1.25rem;
+  border-radius: var(--mobile-border-radius);
+  box-shadow: 0 4px 16px var(--shadow-soft);
+  text-align: center;
+  backdrop-filter: blur(12px);
+}
+
+.dua-arabic {
+  font-family: 'Amiri', serif;
+  font-size: 1.5rem;
+  direction: rtl;
+  margin-bottom: 0.75rem;
+}
+
+.dua-translation {
+  font-size: 1rem;
+  color: var(--text-medium);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.dua-reference {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}

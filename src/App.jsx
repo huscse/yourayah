@@ -5,6 +5,7 @@ import AyahDisplay from './components/AyahDisplay';
 import LandingPage from './components/LandingPage';
 import { Analytics } from '@vercel/analytics/react';
 import DailyAzkaar from './components/DailyAzkaar';
+import DuaBySituation from './components/DuaBySituation';
 
 function App() {
   const [currentView, setCurrentView] = useState('landing'); // 'landing' or 'main'
@@ -34,10 +35,11 @@ function App() {
         ← Back
       </button>
 
-      <h1>Daily Ayah for You 💚</h1>
+      <h1>Daily Ayah For You 💚</h1>
       <MoodSelector setMood={setMood} />
       <AyahDisplay mood={mood} />
       <DailyAzkaar />
+      <DuaBySituation />
 
       <Analytics />
     </div>
