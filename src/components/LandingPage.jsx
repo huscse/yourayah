@@ -137,7 +137,9 @@ const LandingPage = ({ onStartUsing }) => {
 
         <footer>
           {' '}
-          <p className="cta-message">&copy; 2025 Husnain</p>
+          <p className="foot-title">
+            &copy; 2025 Ayah For You • Made with 💚 for the Ummah by Husnain
+          </p>
         </footer>
       </div>
 

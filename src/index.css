@@ -868,3 +868,22 @@ body::before {
   font-size: 0.85rem;
   color: var(--text-light);
 }
+
+.foot-title {
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  margin-top: clamp(1rem, 4vw, 2rem);
+  background: linear-gradient(135deg, var(--text-dark), var(--sage-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.2s forwards;
+  /* Better text rendering on mobile */
+  text-rendering: optimizeLegibility;
+  word-wrap: break-word;
+  hyphens: auto;
+}
