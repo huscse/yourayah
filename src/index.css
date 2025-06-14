@@ -819,6 +819,8 @@ body::before {
   justify-content: center;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .category-btn {
@@ -828,6 +830,8 @@ body::before {
   font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .category-btn:hover,
