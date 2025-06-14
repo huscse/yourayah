@@ -376,6 +376,8 @@ const LandingPage = ({ onStartUsing }) => {
         .cta-section {
           width: 100%;
           max-width: 600px;
+          margin: 0 auto;
+          text-align: center;
           opacity: 0;
           animation: fadeInUp 1s ease-out 1.2s forwards;
         }
@@ -394,6 +396,7 @@ const LandingPage = ({ onStartUsing }) => {
           border: 2px solid rgba(255, 255, 255, 0.6);
           position: relative;
           overflow: hidden;
+          margin: 0 auto;
         }
 
         .cta-card::before {
@@ -429,7 +432,6 @@ const LandingPage = ({ onStartUsing }) => {
           font-weight: 300;
           font-style: italic;
         }
-
         .start-button {
           background: linear-gradient(135deg, var(--sage), var(--sage-light));
           color: white;
@@ -443,20 +445,21 @@ const LandingPage = ({ onStartUsing }) => {
           font-family: inherit;
           letter-spacing: 0.025em;
           box-shadow: 0 6px 24px var(--shadow-medium);
-          position: relative;
           overflow: hidden;
           min-height: var(--touch-target);
+
+          /* ✅ Center the button itself */
+          margin: 0 auto;
+
+          /* ✅ Keep these for internal content alignment */
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 0.5rem;
+
           -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
           touch-action: manipulation;
           user-select: none;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-top: 1.5rem;
         }
 
         .start-button:hover {
@@ -472,7 +475,6 @@ const LandingPage = ({ onStartUsing }) => {
 
         .button-text {
           font-weight: 500;
-          aliign-items: center;
           align-items: center;
           justify-content: center;
         }
