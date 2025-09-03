@@ -1,7 +1,7 @@
 # 🌿 Ayah For You
 
 **A mood-based Quranic reflection app**  
-Get a personalized Quranic verse (Ayah) each day based on how you're feeling — sad, happy, anxious, grateful, and more.
+Get a personalized Quranic verse (Ayah) based on how you're feeling — sad, happy, anxious, grateful, and more.
 
 ---
 
