@@ -20,5 +20,3 @@ Built with ❤️
 - 🔄 **Show Another Ayah** — View a new ayah within the same mood
 - 🌐 **Responsive Design** — Works beautifully on desktop and mobile
 - ⚡ Powered by [AlQuran Cloud API](https://alquran.cloud/api)
-
----
