@@ -138,7 +138,7 @@ const LandingPage = ({ onStartUsing }) => {
         <footer>
           {' '}
           <p className="foot-title">
-            &copy; 2025 Ayah For You • Made with 💚 for the Ummah by Husnain
+            &copy; 2025 Ayah For You • Made with 💚 for the Ummah
           </p>
         </footer>
       </div>
